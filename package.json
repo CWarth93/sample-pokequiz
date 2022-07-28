@@ -1,0 +1,18 @@
+{
+  "name": "enter_name",
+  "version": "0.1.0",
+  "autor": "kiljimintaru",
+  "scripts": {
+    "setup": "npm install",
+    "style": "prettier --single-quote --use-tabs --arrow-parens always --quote-props consistent --print-width 160 --write **/*.{ts,js,css,html}",
+    "run": "next dev"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "next": "^9.2.2",
+    "prettier": "^2.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
