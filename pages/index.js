@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
 
 import useRouting from '../hooks/useRouting';
-import useCounter from '../hooks/useCounter';
+import useTexts from '../hooks/useTexts';
 
-import ActiveCounterPage from '../sites/activeCounter';
-import ShowCounterPage from '../sites/showCounter';
+import GamePage from '../sites/game';
+import ImprintPage from '../sites/imprint';
 
 const App = () => {
 	// routing
 	const { path, route } = useRouting();
-	useEffect(() => route('activeCounter'), []);
+	useEffect(() => route('game'), []);
 
-	// application state
-	const { counter, setCounter } = useCounter();
+	// locales
+	const { texts } = useTexts();
 
 	// routes
 	return (
 		<>
-			{path === 'activeCounter' && <ActiveCounterPage counter={counter} setCounter={setCounter} route={route} />}
-			{path === 'showCounter' && <ShowCounterPage counter={counter} route={route} />}
+			{path === 'game' && <GamePage route={route} texts={texts} />}
+			{path === 'imprint' && <ImprintPage route={route} />}
 		</>
 	);
 };
