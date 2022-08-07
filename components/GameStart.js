@@ -2,24 +2,8 @@ import React, { useState } from 'react';
 import useStyle from '../hooks/useStyle';
 import { getMyStyle } from './GameStart.style.js';
 
-const Component = ({ texts, nextPhase }) => {
-	const [name, setName] = useState('');
-	const changeName = (event) => {
-		if (event.target.value.length >= 3) {
-			setNameError(false);
-		} else {
-			setNameError(true);
-		}
-		setName(event.target.value);
-	};
-	const [nameError, setNameError] = useState(true);
+const Component = ({ texts, name, nameError, changeName, startGame }) => {
 	const { style } = useStyle(getMyStyle, { nameError }, [nameError]);
-	const startGame = () => {
-		if (!nameError) {
-			// ToDo: request to start the game
-			nextPhase();
-		}
-	};
 
 	return (
 		<>
