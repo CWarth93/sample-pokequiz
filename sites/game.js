@@ -29,7 +29,7 @@ const Page = ({ route, texts }) => {
 	};
 
 	return (
-		<GameContainer texts={texts}>
+		<GameContainer texts={texts} route={route}>
 			{isLoading && <LoadingContainer texts={texts} />}
 			{!isLoading && phase === 'start' && <GameStart texts={texts} name={name} nameError={nameError} changeName={changeName} startGame={startGame} />}
 			{!isLoading && phase === 'play' && <GamePlay texts={texts} nextPhase={nextPhase} questionsWithAnswers={questionsWithAnswers} />}

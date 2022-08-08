@@ -4,7 +4,7 @@ import useStyle from '../hooks/useStyle';
 import Head from 'next/head';
 import RootContainer from './RootContainer.js';
 
-const Component = ({ texts, children }) => {
+const Component = ({ texts, children, route }) => {
 	const { style } = useStyle(getMyStyle);
 
 	return (
@@ -19,7 +19,7 @@ const Component = ({ texts, children }) => {
 				</div>
 				<div style={style.content}>{children}</div>
 				<div style={style.bottomBar}>
-					<a style={style.imprintLink} href="/imprint">
+					<a style={style.imprintLink} onClick={() => route("imprint")} >
 						{texts['imprint-link']}
 					</a>
 				</div>
