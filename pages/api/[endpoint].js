@@ -1,4 +1,4 @@
-import getTestKey from '../../handlers/getTestKey';
+import loadQuestions from '../../handlers/loadQuestions';
 
 export default async (req, res) => {
 	try {
@@ -12,9 +12,10 @@ export default async (req, res) => {
 
 		// process request
 		let result;
-		if (endpoint === 'getTestKey') {
-			if (method === 'GET') {
-				result = await getTestKey();
+		if (endpoint === 'loadQuestions') {
+			if (method === 'POST') {
+				const { language } = body;
+				result = await loadQuestions(language);
 			} else {
 				throw new Error('Wrong request method.');
 			}

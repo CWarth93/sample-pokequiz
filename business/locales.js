@@ -10,7 +10,8 @@ const languages = {
 	en: en,
 };
 
+const getCurrentLanguage = () => detect(supportedLanguages, defaultLanguage);
 const getDefaultTexts = () => languages[defaultLanguage];
-const getTexts = () => languages[detect(supportedLanguages, defaultLanguage)];
+const getTexts = () => languages[getCurrentLanguage()];
 
-export { supportedLanguages, defaultLanguage, getDefaultTexts, getTexts };
+export { supportedLanguages, defaultLanguage, getDefaultTexts, getTexts, getCurrentLanguage };

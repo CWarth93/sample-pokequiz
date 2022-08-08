@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Component = ({ texts, nextPhase, questionsWithAnswers }) => {
+const Component = () => {
 	return <></>;
 };
 

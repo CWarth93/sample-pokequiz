@@ -11,6 +11,7 @@
     "@unly/universal-language-detector": "^2.0.3",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
+    "lodash": "^4.17.21",
     "next": "^9.2.2",
     "prettier": "^2.0.2",
     "react": "^16.13.1",
