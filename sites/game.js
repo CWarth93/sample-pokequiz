@@ -11,13 +11,24 @@ import useGame from '../hooks/useGame';
 const Page = ({ route, texts }) => {
 	const { name, nameError, changeName } = usePlayerName();
 	const { phase, nextPhase } = useGamePhase();
-	const { startGame, questionsWithAnswers, questionIndex, answer, isLoading } = useGame({ nextPhase, nameError });
+	const { startGame, questionsWithAnswers, questionIndex, answer, isLoading, endGame } = useGame();
 
 	return (
 		<GameContainer texts={texts} route={route}>
 			{isLoading && <LoadingContainer texts={texts} />}
-			{!isLoading && phase === 'start' && <GameStart texts={texts} name={name} nameError={nameError} changeName={changeName} startGame={startGame} />}
-			{!isLoading && phase === 'play' && <GamePlay texts={texts} questionsWithAnswers={questionsWithAnswers} questionIndex={questionIndex} answer={answer} />}
+			{!isLoading && phase === 'start' && (
+				<GameStart texts={texts} name={name} nameError={nameError} changeName={changeName} startGame={startGame} nextPhase={nextPhase} />
+			)}
+			{!isLoading && phase === 'play' && (
+				<GamePlay
+					texts={texts}
+					questionsWithAnswers={questionsWithAnswers}
+					questionIndex={questionIndex}
+					answer={answer}
+					endGame={endGame}
+					nextPhase={nextPhase}
+				/>
+			)}
 			{!isLoading && phase === 'end' && <GameEnd nextPhase={nextPhase} />}
 		</GameContainer>
 	);

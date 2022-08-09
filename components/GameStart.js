@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useStyle from '../hooks/useStyle';
 import { getMyStyle } from './GameStart.style.js';
 
-const Component = ({ texts, name, nameError, changeName, startGame }) => {
+const Component = ({ texts, name, nameError, changeName, startGame, nextPhase }) => {
 	const { style } = useStyle(getMyStyle, { nameError }, [nameError]);
 
 	return (
@@ -10,7 +10,14 @@ const Component = ({ texts, name, nameError, changeName, startGame }) => {
 			<img style={style.startPicture} src="/images/start.gif" alt="Start" />
 			<div style={style.startInputContainer}>
 				<input style={style.nameInput} type="text" placeholder={texts['name-input-label']} value={name} onChange={changeName} />
-				<button style={style.startButton} onClick={startGame}>
+				<button
+					style={style.startButton}
+					onClick={() => {
+						startGame();
+						nextPhase();
+					}}
+					disabled={nameError}
+				>
 					{texts['start-button-label']}
 				</button>
 			</div>

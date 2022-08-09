@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getMyStyle } from './GamePlay.style.js';
 import useStyle from '../hooks/useStyle';
 import Timer from 'react-compound-timer';
 
 const tiRef = React.createRef();
 
-const Component = ({ texts, questionsWithAnswers, questionIndex, answer }) => {
+const Component = ({ texts, questionsWithAnswers, questionIndex, answer, endGame, nextPhase }) => {
 	const { style } = useStyle(getMyStyle);
+
+	useEffect(() => {
+		if (questionIndex === questionsWithAnswers.length - 1) {
+			endGame();
+			nextPhase();
+		}
+	}, [questionIndex, questionsWithAnswers]);
 
 	return (
 		<>
@@ -16,7 +23,9 @@ const Component = ({ texts, questionsWithAnswers, questionIndex, answer }) => {
 			<Timer
 				id="timer"
 				ref={tiRef}
-				onStop={() => answer(-1)}
+				onStop={() => {
+					answer(-1);
+				}}
 				checkpoints={[
 					{
 						time: 0,
