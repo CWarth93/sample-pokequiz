@@ -13,8 +13,8 @@ export default async (req, res) => {
 		// process request
 		let result;
 		if (endpoint === 'loadQuestions') {
-			if (method === 'POST') {
-				const { language } = body;
+			if (method === 'GET') {
+				const { language } = headers;
 				result = await loadQuestions(language);
 			} else {
 				throw new Error('Wrong request method.');

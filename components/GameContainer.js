@@ -19,7 +19,7 @@ const Component = ({ texts, children, route }) => {
 				</div>
 				<div style={style.content}>{children}</div>
 				<div style={style.bottomBar}>
-					<a style={style.imprintLink} onClick={() => route("imprint")} >
+					<a style={style.imprintLink} onClick={() => route('imprint')}>
 						{texts['imprint-link']}
 					</a>
 				</div>

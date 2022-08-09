@@ -17,7 +17,6 @@ const Page = ({ route, texts }) => {
 	const loadQuestionsWithAnswers = async () => {
 		setIsLoading(true);
 		const qwa = (await loadQuestions(getCurrentLanguage())).questionsWithAnswers;
-		console.log(qwa);
 		setQuestionsWithAnswers(qwa);
 		setIsLoading(false);
 	};
