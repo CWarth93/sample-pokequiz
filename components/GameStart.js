@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useStyle from '../hooks/useStyle';
 import { getMyStyle } from './GameStart.style.js';
 
-const Component = ({ texts, name, nameError, changeName, startGame, nextPhase }) => {
+const Component = ({ texts, name, nameError, changeName, loadQuestionsWithAnswers, nextPhase, setIsLoading }) => {
 	const { style } = useStyle(getMyStyle, { nameError }, [nameError]);
+
+	const startGame = async () => {
+		setIsLoading(true);
+		await loadQuestionsWithAnswers();
+		nextPhase();
+		setIsLoading(false);
+	};
 
 	return (
 		<>
@@ -14,7 +21,6 @@ const Component = ({ texts, name, nameError, changeName, startGame, nextPhase })
 					style={style.startButton}
 					onClick={() => {
 						startGame();
-						nextPhase();
 					}}
 					disabled={nameError}
 				>

@@ -1,4 +1,5 @@
 import loadQuestions from '../../handlers/loadQuestions';
+import postResult from '../../handlers/postResult';
 
 export default async (req, res) => {
 	try {
@@ -16,6 +17,13 @@ export default async (req, res) => {
 			if (method === 'GET') {
 				const { language } = headers;
 				result = await loadQuestions(language);
+			} else {
+				throw new Error('Wrong request method.');
+			}
+		} else if (endpoint === 'postResult') {
+			if (method === 'POST') {
+				const { name, userscore } = body;
+				result = await postResult(name, userscore);
 			} else {
 				throw new Error('Wrong request method.');
 			}

@@ -5,13 +5,23 @@ import Timer from 'react-compound-timer';
 
 const tiRef = React.createRef();
 
-const Component = ({ texts, questionsWithAnswers, questionIndex, answer, endGame, nextPhase }) => {
+const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, userAnswers, sendUserScore, nextPhase, setIsLoading }) => {
 	const { style } = useStyle(getMyStyle);
+
+	const endGame = async () => {
+		setIsLoading(true);
+		await sendUserScore(
+			name,
+			userAnswers,
+			questionsWithAnswers.map((q) => q.answer)
+		);
+		nextPhase();
+		setIsLoading(false);
+	};
 
 	useEffect(() => {
 		if (questionIndex === questionsWithAnswers.length - 1) {
 			endGame();
-			nextPhase();
 		}
 	}, [questionIndex, questionsWithAnswers]);
 

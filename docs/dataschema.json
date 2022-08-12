@@ -1,0 +1,9 @@
+{
+    "games": [
+        {
+            "_id": {"$oid":"5ead7d9b2d132935907at62u"},
+            "name": "Karlman",
+            "score": 7
+        }
+    ]
+}
