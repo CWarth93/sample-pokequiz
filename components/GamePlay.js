@@ -5,7 +5,7 @@ import Timer from 'react-compound-timer';
 
 const tiRef = React.createRef();
 
-const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, userAnswers, sendUserScore, nextPhase, setIsLoading }) => {
+const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers, sendUserScore, nextPhase, setIsLoading }) => {
 	const { style } = useStyle(getMyStyle);
 
 	const endGame = async () => {
@@ -15,6 +15,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, u
 			userAnswers,
 			questionsWithAnswers.map((q) => q.answer)
 		);
+		resetQuestionnaire();
 		nextPhase();
 		setIsLoading(false);
 	};
@@ -26,7 +27,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, u
 	}, [questionIndex, questionsWithAnswers]);
 
 	return (
-		<>
+		<div style={style.questionContainer}>
 			<p style={style.questionText}>
 				{texts['question-count-pre']} {questionIndex + 1}: {questionsWithAnswers[questionIndex].text}
 			</p>
@@ -40,9 +41,17 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, u
 					{
 						time: 0,
 						callback: () => {
-							tiRef.current.stop();
-							tiRef.current.reset();
-							tiRef.current.start();
+							try {
+								if (tiRef.current !== null) {
+									tiRef.current.stop();
+									tiRef.current.reset();
+									tiRef.current.start();
+								} else {
+									throw 'no timer available';
+								}
+							} catch (e) {
+								console.error(e);
+							}
 						},
 					},
 				]}
@@ -50,7 +59,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, u
 				direction="backward"
 			>
 				{({ reset }) => (
-					<>
+					<div>
 						<div style={style.optionsContainer}>
 							{questionsWithAnswers[questionIndex].options.map((option) => (
 								<img
@@ -68,10 +77,10 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, answer, u
 						<div style={style.timerContainer}>
 							<Timer.Seconds id="timer-seconds" />
 						</div>
-					</>
+					</div>
 				)}
 			</Timer>
-		</>
+		</div>
 	);
 };
 

@@ -2,6 +2,7 @@ const template = require('../config/template.json');
 
 const getMyStyle = () => ({
 	header: {
+		marginTop: '20px',
 		height: '10vh',
 		minHeight: '60px',
 		display: 'flex',
@@ -28,18 +29,18 @@ const getMyStyle = () => ({
 		alignSelf: 'center',
 	},
 	bottomBar: {
-		height: '3vh',
-		width: '90vw',
+		height: 'min-content',
+		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
-		alignSelf: 'flex-end',
 		position: 'absolute',
-		bottom: 5,
+		bottom: '3%',
 	},
 	imprintLink: {
 		fontSize: '16px',
 		marginRight: '20px',
+		cursor: 'pointer',
 	},
 });
 

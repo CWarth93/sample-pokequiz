@@ -100,7 +100,7 @@ const questions = [
 const generateQuestionsWithAnswers = async (amountOfQuestions, language, amountOfPokemons, maxPokedexId) => {
 	const table = require('../config/' + language + '.json');
 	let questionsWithAnswers = [];
-	for (let i = 0; i < amountOfQuestions; i++) {
+	for (let i = 0; i <= amountOfQuestions; i++) {
 		const randomNumber = getRandomNumber(0, questions.length - 1);
 		const pokemons = await getRandomPokemons(amountOfPokemons, maxPokedexId);
 		questionsWithAnswers.push({

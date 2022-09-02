@@ -11,12 +11,17 @@ const hook = () => {
 
 	const [userAnswers, setUserAnswers] = useState([]);
 	const [questionIndex, setQuestionIndex] = useState(0);
+	const resetQuestionnaire = () => {
+		setQuestionIndex(0);
+		setUserAnswers([]);
+	};
 	const answer = (option) => {
+		console.log(userAnswers);
 		setUserAnswers([...userAnswers, option]);
 		setQuestionIndex(questionIndex + 1);
 	};
 
-	return { loadQuestionsWithAnswers, questionsWithAnswers, questionIndex, answer, userAnswers };
+	return { loadQuestionsWithAnswers, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers };
 };
 
 export default hook;

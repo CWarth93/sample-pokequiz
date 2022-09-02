@@ -14,7 +14,7 @@ const Page = ({ route, texts }) => {
 	const { isLoading, setIsLoading } = useLoading();
 	const { name, nameError, changeName } = useName();
 	const { phase, nextPhase } = usePhase();
-	const { loadQuestionsWithAnswers, questionsWithAnswers, questionIndex, answer, userAnswers } = useQuestionnaire();
+	const { loadQuestionsWithAnswers, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers } = useQuestionnaire();
 	const { sendUserScore, highscore, userscore } = useScore();
 
 	return (
@@ -37,6 +37,7 @@ const Page = ({ route, texts }) => {
 					name={name}
 					questionsWithAnswers={questionsWithAnswers}
 					questionIndex={questionIndex}
+					resetQuestionnaire={resetQuestionnaire}
 					answer={answer}
 					userAnswers={userAnswers}
 					sendUserScore={sendUserScore}

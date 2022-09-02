@@ -10,7 +10,11 @@ const getRandomPokemons = async (amount, maxId) => {
 				url: 'https://pokeapi.co/api/v2/pokemon/' + getRandomNumber(0, maxId),
 				headers: { 'Content-Type': 'application/json' },
 			});
-			pokemons.push(pokemon);
+			if (pokemons.map((pkmn) => pkmn.id).includes(pokemon.id)) {
+				i--;
+			} else {
+				pokemons.push(pokemon);
+			}
 		} catch (e) {
 			console.error(e);
 			i--;
