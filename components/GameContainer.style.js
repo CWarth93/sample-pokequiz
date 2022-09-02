@@ -10,7 +10,7 @@ const getMyStyle = () => ({
 	},
 	content: {
 		height: '80vh',
-		minHeight: '580px',
+		minHeight: '400px',
 		width: '80vw',
 		display: 'flex',
 		flexDirection: 'column',
