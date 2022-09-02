@@ -3,7 +3,7 @@ const template = require('../config/template.json');
 const getMyStyle = () => ({
 	scoreText: {
 		fontFamily: template.fonts.pokemon,
-		fontSize: '20px',
+		fontSize: template.sizes.dataFont,
 		alignSelf: 'center',
 	},
 	ladderLabel: {
@@ -11,7 +11,7 @@ const getMyStyle = () => ({
 		alignSelf: 'center',
 	},
 	ladderList: {
-		marginTop: '8px',
+		marginTop: template.sizes.smallMargin,
 		alignSelf: 'center',
 		listStyleType: 'decimal',
 		backgroundColor: template.colors.pink,
@@ -23,8 +23,8 @@ const getMyStyle = () => ({
 	},
 	ladderEntry: {
 		fontFamily: template.fonts.pokemon,
-		fontSize: '14px',
-		marginBottom: '4px',
+		fontSize: template.sizes.defaultFont,
+		marginBottom: template.sizes.tinyMargin,
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
@@ -35,7 +35,7 @@ const getMyStyle = () => ({
 		width: '160px',
 		backgroundColor: template.colors.green,
 		fontFamily: template.fonts.pokemon,
-		fontSize: '16px',
+		fontSize: template.sizes.defaultFont,
 		cursor: 'pointer',
 		textTransform: 'uppercase',
 		padding: '0px',

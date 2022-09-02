@@ -12,7 +12,7 @@ const getMyStyle = () => ({
 	},
 	questionText: {
 		fontFamily: template.fonts.pokemon,
-		fontSize: '20px',
+		fontSize: template.sizes.dataFont,
 		alignSelf: 'center',
 		justifySelf: 'flex-start',
 	},
@@ -27,17 +27,16 @@ const getMyStyle = () => ({
 	pokemonOption: {
 		width: '30%',
 		maxWidth: '120px',
-		//maxWidth: "25vw",
 		height: 'auto',
 	},
 	timerContainer: {
 		alignSelf: 'center',
 		fontFamily: template.fonts.pokemon,
-		fontSize: '18px',
+		fontSize: template.sizes.defaultFont,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
-		marginTop: '16px',
+		marginTop: template.sizes.bigMargin,
 	},
 });
 

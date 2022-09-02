@@ -20,9 +20,9 @@ const getMyStyle = ({ nameError }) => ({
 	startButton: {
 		width: '160px',
 		backgroundColor: template.colors.green,
-		marginLeft: '20px',
-		fontFamily: "'Pokemon'",
-		fontSize: '16px',
+		marginLeft: template.sizes.giantMargin,
+		fontFamily: template.fonts.pokemon,
+		fontSize: template.sizes.defaultFont,
 		cursor: 'pointer',
 		textTransform: 'uppercase',
 		padding: '0px',

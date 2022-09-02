@@ -21,6 +21,12 @@
         "headlineFont": "24px",
         "innerHeadlineFont": "20px",
         "contentFont": "18px",
-        "dataFont": "12px"
+        "dataFont": "20px",
+        "defaultFont": "16px",
+        "tinyMargin": "4px",
+        "smallMargin": "8px",
+        "mediumMargin": "12px",
+        "bigMargin": "16px",
+        "giantMargin": "20px"
     }
 }

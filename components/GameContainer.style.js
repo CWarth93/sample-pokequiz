@@ -2,7 +2,7 @@ const template = require('../config/template.json');
 
 const getMyStyle = () => ({
 	header: {
-		marginTop: '20px',
+		marginTop: template.sizes.giantMargin,
 		height: '10vh',
 		minHeight: '60px',
 		display: 'flex',
@@ -38,7 +38,7 @@ const getMyStyle = () => ({
 		bottom: '3%',
 	},
 	imprintLink: {
-		fontSize: '16px',
+		fontSize: template.sizes.defaultFont,
 		marginRight: '20px',
 		cursor: 'pointer',
 	},

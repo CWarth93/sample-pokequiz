@@ -14,7 +14,6 @@ const hook = () => {
 		}
 		setUserscore(score);
 		const res = await postResult(name, score);
-		console.log(res);
 		setHighscore(res.highscore);
 	};
 

@@ -7,10 +7,10 @@ const getMyStyle = () => ({
 		alignSelf: 'center',
 	},
 	loadingText: {
-		marginTop: '20px',
+		marginTop: template.sizes.giantMargin,
 		display: 'flex',
 		fontFamily: template.fonts.pokemon,
-		fontSIze: '16px',
+		fontSIze: template.sizes.defaultFont,
 		textAlign: 'center',
 		alignSelf: 'center',
 	},

@@ -16,7 +16,6 @@ const hook = () => {
 		setUserAnswers([]);
 	};
 	const answer = (option) => {
-		console.log(userAnswers);
 		setUserAnswers([...userAnswers, option]);
 		setQuestionIndex(questionIndex + 1);
 	};
