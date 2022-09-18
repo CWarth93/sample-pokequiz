@@ -22,8 +22,8 @@ export default async (req, res) => {
 			}
 		} else if (endpoint === 'postResult') {
 			if (method === 'POST') {
-				const { name, userscore } = body;
-				result = await postResult(name, userscore);
+				const { name, score } = body;
+				result = await postResult(name, score);
 			} else {
 				throw new Error('Wrong request method.');
 			}
