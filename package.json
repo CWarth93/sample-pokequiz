@@ -1,22 +1,24 @@
 {
-  "name": "enter_name",
-  "version": "0.1.0",
-  "autor": "kiljimintaru",
-  "scripts": {
-    "setup": "npm install",
-    "style": "prettier --single-quote --use-tabs --arrow-parens always --quote-props consistent --print-width 160 --write **/*.{ts,js,css,html}",
-    "run": "next dev"
-  },
-  "dependencies": {
-    "@unly/universal-language-detector": "^2.0.3",
-    "dotenv": "^8.2.0",
-    "fs": "0.0.1-security",
-    "lodash": "^4.17.21",
-    "mongodb": "^4.8.1",
-    "next": "^9.2.2",
-    "prettier": "^2.0.2",
-    "react": "^16.13.1",
-    "react-compound-timer": "^1.2.0",
-    "react-dom": "^16.13.1"
-  }
+    "name": "pokequiz",
+    "version": "0.1.0",
+    "autor": "kiljimintaru",
+    "scripts": {
+        "setup": "npm install",
+        "run": "next dev",
+        "style": "prettier --single-quote --use-tabs --arrow-parens always --quote-props consistent --print-width 160 --write **/*.{ts,js,css,html}",
+        "test": "cypress run"
+    },
+    "dependencies": {
+        "@unly/universal-language-detector": "^2.0.3",
+        "cypress": "^13.3.3",
+        "dotenv": "^8.2.0",
+        "fs": "0.0.1-security",
+        "lodash": "^4.17.21",
+        "mongodb": "^4.5.0",
+        "next": "^13.0.6",
+        "prettier": "^2.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "socket.io-client": "^4.7.2"
+    }
 }

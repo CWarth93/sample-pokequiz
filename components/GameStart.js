@@ -16,13 +16,14 @@ const Component = ({ texts, name, nameError, changeName, loadQuestionsWithAnswer
 		<>
 			<img style={style.startPicture} src="/images/start.gif" alt="Start" />
 			<div style={style.startInputContainer}>
-				<input style={style.nameInput} type="text" placeholder={texts['name-input-label']} value={name} onChange={changeName} />
+				<input id="name-input" style={style.nameInput} type="text" placeholder={texts['name-input-label']} value={name} onChange={changeName} />
 				<button
 					style={style.startButton}
 					onClick={() => {
 						startGame();
 					}}
 					disabled={nameError}
+					id="start-button"
 				>
 					{texts['start-button-label']}
 				</button>

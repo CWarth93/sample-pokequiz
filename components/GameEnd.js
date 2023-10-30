@@ -10,7 +10,7 @@ const Component = ({ userscore, highscore, texts, nextPhase }) => {
 				{texts['score-pre']} {userscore}
 			</p>
 			<p style={style.ladderLabel}>{texts['ladder-label']}</p>
-			<ul style={style.ladderList}>
+			<ul id="highscore-list" style={style.ladderList}>
 				{highscore.map((result, index) => (
 					<p style={style.ladderEntry}>
 						{index + 1}. {result.name} ({result.score})
