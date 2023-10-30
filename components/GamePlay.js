@@ -4,20 +4,20 @@ import useStyle from '../hooks/useStyle';
 
 const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers, sendUserScore, nextPhase, setIsLoading }) => {
 	const { style } = useStyle(getMyStyle);
-	const [timeRemaining, setTimeRemaining] = useState(15);
+	const [timer, setTimer] = useState(15);
 
 	useEffect(() => {
 		const timerInterval = setInterval(() => {
-			setTimeRemaining((prevTime) => prevTime - 1);
+			setTimer((prevTime) => prevTime - 1);
 
-			if (timeRemaining === 0) {
+			if (timer === 0) {
 				answer(-1);
 				resetTimer();
 			}
 		}, 1000);
 
 		return () => clearInterval(timerInterval);
-	}, [answer, timeRemaining]);
+	}, [answer, timer]);
 
 	useEffect(() => {
 		if (questionIndex === questionsWithAnswers.length - 1) {
@@ -38,7 +38,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 	};
 
 	const resetTimer = () => {
-		setTimeRemaining(15);
+		setTimer(15);
 	};
 
 	return (
@@ -63,7 +63,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 			</div>
 
 			<div style={style.timerContainer}>
-				<p>{timeRemaining}</p>
+				<p>{timer}</p>
 			</div>
 		</div>
 	);

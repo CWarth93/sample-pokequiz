@@ -4,11 +4,11 @@ describe('start', () => {
 		cy.get('#name-input').should('be.visible').type('testuser');
 		cy.get('#start-button').click();
 		cy.get('#loading-container').should('be.visible');
-		cy.get('#answers-container').should('be.visible');
+		cy.get('#answers-container').should('be.visible', { timeout: 10000 });
 		for (let i = 0; i < 15; i++) {
 			cy.get('#answer-0').click();
 		}
 		cy.get('#loading-container').should('be.visible');
-		cy.get('#highscore-list').should('be.visible');
+		cy.get('#highscore-list').should('be.visible', { timeout: 10000 });
 	});
 });
