@@ -10,10 +10,6 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 	const allImagesReady = imagesLoaded >= currentOptions.length;
 
 	useEffect(() => {
-		setImagesLoaded(0);
-	}, [questionIndex]);
-
-	useEffect(() => {
 		const timerInterval = setInterval(() => {
 			setTimer((prevTime) => prevTime - 1);
 
@@ -54,7 +50,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 				{texts['question-count-pre']} {questionIndex + 1}: {questionsWithAnswers[questionIndex].text}
 			</p>
 
-			<div style={{ ...style.optionsContainer, visibility: allImagesReady ? 'visible' : 'hidden' }} id="answers-container">
+			<div key={questionIndex} style={{ ...style.optionsContainer, visibility: allImagesReady ? 'visible' : 'hidden' }} id="answers-container">
 				{currentOptions.map((option, index) => (
 					<img
 						style={style.pokemonOption}
@@ -62,6 +58,7 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 						key={'pokemon-' + option}
 						src={'/images/pokemon/' + option + '.png'}
 						onLoad={() => setImagesLoaded((prev) => prev + 1)}
+					onError={() => setImagesLoaded((prev) => prev + 1)}
 						onClick={() => {
 							answer(option);
 							resetTimer();
