@@ -12,6 +12,9 @@ const sendRequest = async ({ method, url, headers = null, body = null, returnTyp
 		}
 
 		const res = await fetch(url, requestOptions);
+		if (!res.ok) {
+			throw new Error(res.status + ' ' + res.statusText);
+		}
 		let processedRes;
 		if (returnType === 'json') {
 			processedRes = await res.json();
