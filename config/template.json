@@ -1,32 +1,38 @@
 {
-    "colors": 
-    {
-        "whitegray": "#E4E4E4",
-        "lightgray": "#B2B2B2",
-        "gray": "#8c8b8b",
-        "darkgray": "#151515",
-        "red": "#d32929",
-        "black": "#000000",
-        "white": "#ffffff",
-        "green": "rgba(148,233,232,1)",
-        "pink": "rgba(221,126,218,1)"
-    },
-    "fonts": 
-    {
-        "main": "Roboto",
-        "pokemon": "Pokemon"
-    },
-    "sizes": 
-    {
-        "headlineFont": "24px",
-        "innerHeadlineFont": "20px",
-        "contentFont": "18px",
-        "dataFont": "20px",
-        "defaultFont": "16px",
-        "tinyMargin": "4px",
-        "smallMargin": "8px",
-        "mediumMargin": "12px",
-        "bigMargin": "16px",
-        "giantMargin": "20px"
-    }
+	"colors": {
+		"bgDark": "#0f0f23",
+		"bgPanel": "#1a1a3e",
+		"bgPanelLight": "#2a2a5e",
+		"pokemonRed": "#CC0000",
+		"pokemonRedDark": "#8B0000",
+		"pokemonYellow": "#FFCB05",
+		"pokemonYellowDark": "#C8A000",
+		"pokemonBlue": "#3B4CCA",
+		"pokemonBlueDark": "#2A3A99",
+		"white": "#ffffff",
+		"textLight": "#E8E8E8",
+		"textMuted": "#9090B0",
+		"borderLight": "#5555AA",
+		"borderDark": "#0a0a1a",
+		"gold": "#FFD700",
+		"green": "#00CC66",
+		"greenDark": "#009944"
+	},
+	"fonts": {
+		"main": "Roboto",
+		"pokemon": "Pokemon"
+	},
+	"sizes": {
+		"headlineFont": "28px",
+		"innerHeadlineFont": "22px",
+		"contentFont": "18px",
+		"dataFont": "22px",
+		"defaultFont": "16px",
+		"smallFont": "14px",
+		"tinyMargin": "4px",
+		"smallMargin": "8px",
+		"mediumMargin": "12px",
+		"bigMargin": "16px",
+		"giantMargin": "20px"
+	}
 }

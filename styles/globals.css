@@ -1,0 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: #0f0f23;
+	color: #e8e8e8;
+	overflow-x: hidden;
+}
+
+::selection {
+	background-color: #3b4cca;
+	color: #ffcb05;
+}
+
+input::placeholder {
+	color: #9090b0;
+	opacity: 1;
+}

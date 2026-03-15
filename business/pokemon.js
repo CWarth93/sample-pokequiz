@@ -7,7 +7,7 @@ const getRandomPokemons = async (amount, maxId) => {
 		try {
 			const pokemon = await sendRequest({
 				method: 'GET',
-				url: 'https://pokeapi.co/api/v2/pokemon/' + getRandomNumber(0, maxId),
+				url: 'https://pokeapi.co/api/v2/pokemon/' + getRandomNumber(1, maxId),
 				headers: { 'Content-Type': 'application/json' },
 			});
 			if (pokemons.map((pkmn) => pkmn.id).includes(pokemon.id)) {

@@ -6,7 +6,7 @@ const Component = ({ texts }) => {
 	const { style } = useStyle(getMyStyle);
 	return (
 		<>
-			<img style={style.loadingPicture} src="/images/loading.gif" alt="Loading" />
+			<img style={style.loadingPicture} src="/images/loading.gif" alt="Loading" id="loading-container" />
 			<p style={style.loadingText}>{texts['loading-text']}</p>
 		</>
 	);

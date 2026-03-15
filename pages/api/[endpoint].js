@@ -1,7 +1,8 @@
 import loadQuestions from '../../handlers/loadQuestions';
 import postResult from '../../handlers/postResult';
+import loadHighscore from '../../handlers/loadHighscore';
 
-export default async (req, res) => {
+export default async function handler(req, res) {
 	try {
 		// read request
 		const {
@@ -17,6 +18,12 @@ export default async (req, res) => {
 			if (method === 'GET') {
 				const { language } = headers;
 				result = await loadQuestions(language);
+			} else {
+				throw new Error('Wrong request method.');
+			}
+		} else if (endpoint === 'loadHighscore') {
+			if (method === 'GET') {
+				result = await loadHighscore();
 			} else {
 				throw new Error('Wrong request method.');
 			}
