@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { postResult } from '../fetchers/api.js';
+import { postResult, loadHighscore as loadHighscoreFromApi } from '../fetchers/api.js';
 
 const hook = () => {
-	const [userscore, setUserscore] = useState([]);
+	const [userscore, setUserscore] = useState(null);
 	const [highscore, setHighscore] = useState([]);
+	const [highscoreLoaded, setHighscoreLoaded] = useState(false);
 
 	const sendUserScore = async (name, userAnswers, correctAnswers) => {
 		let score = 0;
@@ -17,7 +18,13 @@ const hook = () => {
 		setHighscore(res.highscore);
 	};
 
-	return { sendUserScore, highscore, userscore };
+	const loadHighscore = async () => {
+		const res = await loadHighscoreFromApi();
+		setHighscore(res.highscore);
+		setHighscoreLoaded(true);
+	};
+
+	return { sendUserScore, loadHighscore, highscore, highscoreLoaded, userscore };
 };
 
 export default hook;

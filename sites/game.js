@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GameContainer from '../components/GameContainer.js';
 import GameStart from '../components/GameStart.js';
 import GamePlay from '../components/GamePlay.js';
-import GameEnd from '../components/GameEnd.js';
 import LoadingContainer from '../components/LoadingContainer.js';
 import useName from '../hooks/useName';
 import usePhase from '../hooks/usePhase';
@@ -15,12 +14,16 @@ const Page = ({ route, texts }) => {
 	const { name, nameError, changeName } = useName();
 	const { phase, nextPhase } = usePhase();
 	const { loadQuestionsWithAnswers, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers } = useQuestionnaire();
-	const { sendUserScore, highscore, userscore } = useScore();
+	const { sendUserScore, loadHighscore, highscore, highscoreLoaded, userscore } = useScore();
+
+	useEffect(() => {
+		loadHighscore();
+	}, []);
 
 	return (
 		<GameContainer texts={texts} route={route}>
-			{isLoading && <LoadingContainer texts={texts} />}
-			{!isLoading && phase === 'start' && (
+			{(isLoading || (phase === 'start' && !highscoreLoaded)) && <LoadingContainer texts={texts} />}
+			{!isLoading && highscoreLoaded && phase === 'start' && (
 				<GameStart
 					texts={texts}
 					name={name}
@@ -29,6 +32,8 @@ const Page = ({ route, texts }) => {
 					loadQuestionsWithAnswers={loadQuestionsWithAnswers}
 					nextPhase={nextPhase}
 					setIsLoading={setIsLoading}
+					highscore={highscore}
+					userscore={userscore}
 				/>
 			)}
 			{!isLoading && phase === 'play' && (
@@ -45,7 +50,6 @@ const Page = ({ route, texts }) => {
 					setIsLoading={setIsLoading}
 				/>
 			)}
-			{!isLoading && phase === 'end' && <GameEnd nextPhase={nextPhase} texts={texts} highscore={highscore} userscore={userscore} />}
 		</GameContainer>
 	);
 };

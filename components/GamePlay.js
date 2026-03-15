@@ -5,6 +5,13 @@ import useStyle from '../hooks/useStyle';
 const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQuestionnaire, answer, userAnswers, sendUserScore, nextPhase, setIsLoading }) => {
 	const { style } = useStyle(getMyStyle);
 	const [timer, setTimer] = useState(15);
+	const [imagesLoaded, setImagesLoaded] = useState(0);
+	const currentOptions = questionsWithAnswers[questionIndex].options;
+	const allImagesReady = imagesLoaded >= currentOptions.length;
+
+	useEffect(() => {
+		setImagesLoaded(0);
+	}, [questionIndex]);
 
 	useEffect(() => {
 		const timerInterval = setInterval(() => {
@@ -47,13 +54,14 @@ const Component = ({ texts, name, questionsWithAnswers, questionIndex, resetQues
 				{texts['question-count-pre']} {questionIndex + 1}: {questionsWithAnswers[questionIndex].text}
 			</p>
 
-			<div style={style.optionsContainer} id="answers-container">
-				{questionsWithAnswers[questionIndex].options.map((option, index) => (
+			<div style={{ ...style.optionsContainer, visibility: allImagesReady ? 'visible' : 'hidden' }} id="answers-container">
+				{currentOptions.map((option, index) => (
 					<img
 						style={style.pokemonOption}
 						id={'answer-' + index}
 						key={'pokemon-' + option}
 						src={'/images/pokemon/' + option + '.png'}
+						onLoad={() => setImagesLoaded((prev) => prev + 1)}
 						onClick={() => {
 							answer(option);
 							resetTimer();
